@@ -1,6 +1,6 @@
 public class Main {
+    private static final UI ui = new UI();
     public static void main(String[] args) {
-        UI ui = new UI();
         ui.start();
     }
 }

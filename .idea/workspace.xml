@@ -2,15 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e1713f84-36f4-41a3-89a7-44c434e9df82" name="Changes" comment="commiting new file">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input_text.txt" beforeDir="false" afterPath="$PROJECT_DIR$/input_text.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BruteForceCipher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BruteForceCipher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CaesarCipher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CaesarCipher.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Service/MyReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/MyReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Service/MyWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/MyWriter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,6 +59,14 @@
       <option name="presentableId" value="Default" />
       <updated>1689425385916</updated>
     </task>
+    <task id="LOCAL-00001" summary="commiting new file">
+      <created>1689600438764</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1689600438764</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
