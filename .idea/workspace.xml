@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e1713f84-36f4-41a3-89a7-44c434e9df82" name="Changes" comment="commiting new file">
+    <list default="true" id="e1713f84-36f4-41a3-89a7-44c434e9df82" name="Changes" comment="update main.java">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Service/LangChecker.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Service/Pattern.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -14,6 +16,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -66,7 +69,14 @@
       <option name="project" value="LOCAL" />
       <updated>1689600438764</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="update main.java">
+      <created>1689601481938</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1689601481938</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -82,6 +92,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="commiting new file" />
-    <option name="LAST_COMMIT_MESSAGE" value="commiting new file" />
+    <MESSAGE value="update main.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="update main.java" />
   </component>
 </project>
