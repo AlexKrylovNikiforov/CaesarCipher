@@ -1,6 +1,5 @@
 package Service;
 
-import java.lang.reflect.Array;
 import java.util.*;
 
 public class LangChecker {
@@ -12,32 +11,32 @@ public class LangChecker {
 
     public String getLanguageByPattern(String text) {
         String languageName = "";
-        List<Pattern> patternList = Arrays.asList(
-                Pattern.EN, // English
-                Pattern.FR, // French
-                Pattern.ES, // Spanish
-                Pattern.DE, // German
-                Pattern.IT, // Italian
-                Pattern.UK, // Ukrainian
+        List<Pattern> patternList = List.of(
+                Pattern.EN,
+                Pattern.FR,
+                Pattern.ES,
+                Pattern.DE,
+                Pattern.IT,
+                Pattern.UK,
                 Pattern.RU);
         for(Pattern patter: patternList) {
-            if(getFrequencyWordCount(text, pattern) != null) {
+            if(isPatternWordInText(text, pattern)) {
                 languageName =  pattern.getLabel();
             }
         }
         return languageName;
     }
 
-    private Map<String, Integer> getFrequencyWordCount (String text, Pattern pattern) {
+    private boolean isPatternWordInText (String text, Pattern pattern) {
         String [] frequentWord = pattern.getDescription();
-        Map<String, Integer> wordFrequency = new HashMap<>();
+        List<String> wordFrequency = new ArrayList<>();
         for(String word: frequentWord) {
             int wordCount = getFrequentWordCount(text, word);
                 if(wordCount != 0) {
-                    wordFrequency.put(word, wordCount);
+                    wordFrequency.add(word);
                 }
         }
-        return !wordFrequency.isEmpty() ? wordFrequency : null;
+        return wordFrequency.size() > 0 ? true : false;
     }
 
     private int getFrequentWordCount(String text, String frequentWord) {

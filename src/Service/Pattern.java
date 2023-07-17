@@ -23,7 +23,7 @@ public enum Pattern {
             "que",
             "les",
             "la",
-            "c'est",
+            "est",
     }),
     ES("Spanish", new String [] {
             "de",
@@ -84,7 +84,7 @@ public enum Pattern {
             "как",
             "по",
             "он"
-    }),
+    })
     ;
     private final String label;
     private final String[] description;
