@@ -1,36 +1,30 @@
+
 package Service;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.List;
 
-public class MyReader {
+public class FileSaver {
 
-    public String getText(String path) {
-        String inputPath = path;
-
-        if (!isAbsolutePath(inputPath)) {
+    public void saveText(String message, String path) {
+        if (!isAbsolutePath(path)) {
             BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
             try {
-                inputPath = reader.readLine();
+                path = reader.readLine();
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
-
         try {
-            List<String> lines = Files.readAllLines(Path.of(inputPath));
-            return String.join("\n", lines);
+            Files.write(Path.of(path), message.getBytes());
+            System.out.println("Text saved");
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-        return "";
     }
+
     private boolean isAbsolutePath(String path) {
         return Paths.get(path).isAbsolute();
     }

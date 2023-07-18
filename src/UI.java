@@ -1,5 +1,5 @@
-import Service.MyReader;
-import Service.MyWriter;
+import Service.TextFromFileLoader;
+import Service.FileSaver;
 
 import java.util.*;
 
@@ -8,8 +8,8 @@ public class UI {
     private final CaesarCipher cc = new CaesarCipher();
     private final BruteForceCipher bfc = new BruteForceCipher();
     private final Scanner sc = new Scanner(System.in);
-    private final MyReader reader = new MyReader();
-    private final MyWriter writer = new MyWriter();
+    private final TextFromFileLoader reader = new TextFromFileLoader();
+    private final FileSaver writer = new FileSaver();
 
     public void start() {
         int choice;
@@ -36,7 +36,6 @@ public class UI {
                 }
                 case 3 -> {
                     String inputPath = getInputPath();
-                    String text = reader.getText(inputPath);
                     String forceDecryptedText = bfc.simpleDecryption(inputPath);
                     String outputPath = getOutputPath();
                     writer.saveText(forceDecryptedText, outputPath);
