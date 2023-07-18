@@ -42,8 +42,7 @@ public class UI {
                 }
                 case 4 -> {
                     String inputPath = getInputPath();
-                    String text = reader.getText(inputPath);
-                    String forceDecryptedText = bfc.noSpecCharsDecryption(text);
+                    String forceDecryptedText = bfc.noSpecCharsDecryption(inputPath);
                     String outputPath = getOutputPath();
                     writer.saveText(forceDecryptedText, outputPath);
                 }

@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e1713f84-36f4-41a3-89a7-44c434e9df82" name="Changes" comment="language checker updated">
-      <change afterPath="$PROJECT_DIR$/input_nospecchars.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/input_small.txt" afterDir="false" />
+    <list default="true" id="e1713f84-36f4-41a3-89a7-44c434e9df82" name="Changes" comment="All files updated">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BruteForceCipher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BruteForceCipher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Service/LangChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/LanguageChecker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Service/Pattern.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/Pattern.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -24,6 +20,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -99,7 +100,21 @@
       <option name="project" value="LOCAL" />
       <updated>1689615800273</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="All files updated">
+      <created>1689692549421</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1689692549421</updated>
+    </task>
+    <task id="LOCAL-00006" summary="All files updated">
+      <created>1689692674963</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1689692674963</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -118,7 +133,8 @@
     <MESSAGE value="update main.java" />
     <MESSAGE value="language checker added" />
     <MESSAGE value="language checker updated" />
-    <option name="LAST_COMMIT_MESSAGE" value="language checker updated" />
+    <MESSAGE value="All files updated" />
+    <option name="LAST_COMMIT_MESSAGE" value="All files updated" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

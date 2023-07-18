@@ -9,11 +9,9 @@ import java.nio.file.Paths;
 
 public class BruteForceCipher {
 
-    private final String SPEC_CHARS = "[$&+,:;=?@#|'<>.-^*()%!]";
     public String simpleDecryption (String inputPath) {
         CaesarCipher cc = new CaesarCipher();
-
-        if (!isAbsolutePath(inputPath)) {
+        if (isAbsolutePath(inputPath)) {
             BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
             try {
                 inputPath = reader.readLine();
@@ -34,44 +32,49 @@ public class BruteForceCipher {
 
     private boolean isAbsolutePath(String inputPath) {
         Path p = Paths.get(inputPath);
-        return p.isAbsolute() && Files.exists(p);
+        return !p.isAbsolute() || !Files.exists(p);
     }
 
-    public String noSpecCharsDecryption (String inputText) {
+    public String noSpecCharsDecryption (String inputPath) {
         CaesarCipher cc = new CaesarCipher();
-        LanguageChecker lc = new LanguageChecker();
+        if (isAbsolutePath(inputPath)) {
+            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+            try {
+                inputPath = reader.readLine();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
         String decryptedText = null;
         try {
-            String text = Files.readString(Path.of(inputText));
+            LanguageChecker lc = new LanguageChecker();
+            String text = Files.readString(Path.of(inputPath));
             for (int i = 0; i < 256; i++) {
-                int offset = i;
-                decryptedText = cc.decrypt(text, offset);
+                decryptedText = cc.decrypt(text, i);
                 String languageByPattern = lc.getLanguageByPattern(decryptedText);
-                if(!languageByPattern.equals("")) {
-                    return String.format("Language: %s%n Decrypted text: %s", languageByPattern, decryptedText);
+                if(!languageByPattern.isBlank()) {
+                    return String.format("Decrypted text: %s", decryptedText);
                 }
             }
         } catch (IOException e) {
-            System.out.println(e.getStackTrace());
+            e.printStackTrace();
         }
         return decryptedText;
     }
 
     public String smallTextDecryption(String inputText) {
-        CaesarCipher cc = new CaesarCipher();
         LanguageChecker lc = new LanguageChecker();
         StringBuilder decryptedText = new StringBuilder();
         for (int key = 0; key < 256; key++) {
             StringBuilder decryptedAttempt = new StringBuilder();
             for (int i = 0; i < inputText.length(); i++) {
                 char ch = inputText.charAt(i);
-                int value = (int) ch;
-                int decryptedValue = (value - key + 256) % 256; //256 is the maximum value of ASCII symbols
+                int decryptedValue = ((int) ch - key + 256) % 256; //256 is the maximum value of ASCII symbols
                 char decryptedChar = (char) decryptedValue;
                 decryptedAttempt.append(decryptedChar);
             }
             String decryptedString = decryptedAttempt.toString();
-            if (lc.getLanguageByPattern(decryptedString) != "") {
+            if (!lc.getLanguageByPattern(decryptedString).equals("")) {
                 return decryptedString;
             }
             decryptedText.append(decryptedAttempt).append("\n");
@@ -102,15 +105,5 @@ public class BruteForceCipher {
 
         }
         return offset;
-    }
-
-    public boolean hasTextSpecChars(String text) {
-        for (int i = 0; i < SPEC_CHARS.length(); i++) {
-            char currentChar = SPEC_CHARS.charAt(i);
-            if (text.indexOf(currentChar) == -1) {
-                return false;
-            }
-        }
-        return true;
     }
 }
