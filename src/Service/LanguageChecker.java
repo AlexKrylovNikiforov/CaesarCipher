@@ -2,12 +2,7 @@ package Service;
 
 import java.util.*;
 
-public class LangChecker {
-    private final Pattern pattern;
-
-    public LangChecker(Pattern patterns) {
-        this.pattern = patterns;
-    }
+public class LanguageChecker {
 
     public String getLanguageByPattern(String text) {
         String languageName = "";
@@ -16,10 +11,8 @@ public class LangChecker {
                 Pattern.FR,
                 Pattern.ES,
                 Pattern.DE,
-                Pattern.IT,
-                Pattern.UK,
                 Pattern.RU);
-        for(Pattern patter: patternList) {
+        for(Pattern pattern: patternList) {
             if(isPatternWordInText(text, pattern)) {
                 languageName =  pattern.getLabel();
             }
@@ -29,14 +22,14 @@ public class LangChecker {
 
     private boolean isPatternWordInText (String text, Pattern pattern) {
         String [] frequentWord = pattern.getDescription();
-        List<String> wordFrequency = new ArrayList<>();
+        int count = 0;
         for(String word: frequentWord) {
             int wordCount = getFrequentWordCount(text, word);
-                if(wordCount != 0) {
-                    wordFrequency.add(word);
+                if(wordCount > 0) {
+                    count++;
                 }
         }
-        return wordFrequency.size() > 0 ? true : false;
+        return count > 1;
     }
 
     private int getFrequentWordCount(String text, String frequentWord) {

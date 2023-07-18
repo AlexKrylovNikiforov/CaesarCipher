@@ -36,12 +36,26 @@ public class UI {
                 }
                 case 3 -> {
                     String inputPath = getInputPath();
-                    String forceDecryptedText = bfc.decrypt(inputPath);
+                    String text = reader.getText(inputPath);
+                    String forceDecryptedText = bfc.simpleDecryption(inputPath);
                     String outputPath = getOutputPath();
                     writer.saveText(forceDecryptedText, outputPath);
                 }
-
                 case 4 -> {
+                    String inputPath = getInputPath();
+                    String text = reader.getText(inputPath);
+                    String forceDecryptedText = bfc.noSpecCharsDecryption(text);
+                    String outputPath = getOutputPath();
+                    writer.saveText(forceDecryptedText, outputPath);
+                }
+                case 5 -> {
+                    String inputPath = getInputPath();
+                    String text = reader.getText(inputPath);
+                    String forceDecryptedText = bfc.smallTextDecryption(text);
+                    String outputPath = getOutputPath();
+                    writer.saveText(forceDecryptedText, outputPath);
+                }
+                case 6 -> {
                     System.out.println("Good Bye!");
                     return;
                 }
@@ -54,7 +68,9 @@ public class UI {
         System.out.println("1. Encrypt text");
         System.out.println("2. Decrypt text");
         System.out.println("3. Brute Force decryption");
-        System.out.println("4. Exit");
+        System.out.println("4. Brute Force decryption for text without special chars");
+        System.out.println("5. Brute Force decryption for text smaller than 50 symbols without special chars");
+        System.out.println("6. Exit");
     }
 
     private String getInputPath() {
