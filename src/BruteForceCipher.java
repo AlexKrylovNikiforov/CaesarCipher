@@ -9,55 +9,24 @@ import java.nio.file.Paths;
 
 public class BruteForceCipher {
 
-    public String simpleDecryption (String inputPath) {
+    public String simpleDecryption (String inputText) {
         CaesarCipher cc = new CaesarCipher();
-        if (isAbsolutePath(inputPath)) {
-            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-            try {
-                inputPath = reader.readLine();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
         String decryptedText;
-        try {
-            String text = Files.readString(Path.of(inputPath));
-            int offset = getOffset(text);
-            decryptedText = cc.decrypt(text, offset);
-        } catch (IOException e) {
-            throw new RuntimeException(e.getCause());
-        }
+        int offset = getOffset(inputText);
+        decryptedText = cc.decrypt(inputText, offset);
         return decryptedText;
     }
 
-    private boolean isAbsolutePath(String inputPath) {
-        Path p = Paths.get(inputPath);
-        return !p.isAbsolute() || !Files.exists(p);
-    }
-
-    public String noSpecCharsDecryption (String inputPath) {
+    public String noSpecCharsDecryption (String inputText) {
         CaesarCipher cc = new CaesarCipher();
-        if (isAbsolutePath(inputPath)) {
-            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-            try {
-                inputPath = reader.readLine();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
+        LanguageChecker lc = new LanguageChecker();
         String decryptedText = null;
-        try {
-            LanguageChecker lc = new LanguageChecker();
-            String text = Files.readString(Path.of(inputPath));
-            for (int i = 0; i < 256; i++) {
-                decryptedText = cc.decrypt(text, i);
-                String languageByPattern = lc.getLanguageByPattern(decryptedText);
-                if(!languageByPattern.isBlank()) {
-                    return String.format("Decrypted text: %s", decryptedText);
-                }
+        for (int i = 1; i < 256; i++) {
+            decryptedText = cc.decrypt(inputText, i);
+            String languageByPattern = lc.getLanguageByPattern(decryptedText);
+            if(!languageByPattern.isEmpty()) {
+                return String.format("Decrypted text: %s", decryptedText);
             }
-        } catch (IOException e) {
-            e.printStackTrace();
         }
         return decryptedText;
     }
@@ -87,7 +56,7 @@ public class BruteForceCipher {
         int dif2 = fourthValue - thirdValue;
         return dif1 == dif2;
     }
-    
+
     private int getOffset(String text) {
         int offset = 0;
         for (int i = 0; i < text.length(); i++) {
@@ -105,5 +74,10 @@ public class BruteForceCipher {
 
         }
         return offset;
+    }
+
+    private boolean isAbsolutePath(String inputPath) {
+        Path p = Paths.get(inputPath);
+        return !p.isAbsolute() || !Files.exists(p);
     }
 }

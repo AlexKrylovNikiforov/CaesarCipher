@@ -36,13 +36,15 @@ public class UI {
                 }
                 case 3 -> {
                     String inputPath = getInputPath();
-                    String forceDecryptedText = bfc.simpleDecryption(inputPath);
+                    String text = reader.getText(inputPath);
+                    String forceDecryptedText = bfc.simpleDecryption(text);
                     String outputPath = getOutputPath();
                     writer.saveText(forceDecryptedText, outputPath);
                 }
                 case 4 -> {
                     String inputPath = getInputPath();
-                    String forceDecryptedText = bfc.noSpecCharsDecryption(inputPath);
+                    String text = reader.getText(inputPath);
+                    String forceDecryptedText = bfc.noSpecCharsDecryption(text);
                     String outputPath = getOutputPath();
                     writer.saveText(forceDecryptedText, outputPath);
                 }

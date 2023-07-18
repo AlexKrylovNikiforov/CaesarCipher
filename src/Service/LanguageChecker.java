@@ -6,13 +6,7 @@ public class LanguageChecker {
 
     public String getLanguageByPattern(String text) {
         String languageName = "";
-        List<Pattern> patternList = List.of(
-                Pattern.EN,
-                Pattern.FR,
-                Pattern.ES,
-                Pattern.DE,
-                Pattern.RU);
-        for(Pattern pattern: patternList) {
+        for(Pattern pattern: Pattern.values()) {//проверить, привести к типу стринг
             if(isPatternWordInText(text, pattern)) {
                 languageName =  pattern.getLabel();
             }
@@ -25,7 +19,7 @@ public class LanguageChecker {
         int count = 0;
         for(String word: frequentWord) {
             int wordCount = getFrequentWordCount(text, word);
-                if(wordCount > 0) {
+                if(wordCount > 2) {
                     count++;
                 }
         }

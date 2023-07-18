@@ -9,23 +9,19 @@ import java.nio.file.Paths;
 public class FileSaver {
 
     public void saveText(String message, String path) {
-        if (!isAbsolutePath(path)) {
-            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-            try {
-                path = reader.readLine();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+        Path outputPath = Path.of(path);
+        if (isNotAbsolutePath(path)) {
+            outputPath = (outputPath.toAbsolutePath());
         }
         try {
-            Files.write(Path.of(path), message.getBytes());
+            Files.write(outputPath, message.getBytes());
             System.out.println("Text saved");
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    private boolean isAbsolutePath(String path) {
-        return Paths.get(path).isAbsolute();
+    private boolean isNotAbsolutePath(String path) {
+        return !Paths.get(path).isAbsolute();
     }
 }
