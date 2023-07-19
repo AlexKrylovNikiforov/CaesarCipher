@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e1713f84-36f4-41a3-89a7-44c434e9df82" name="Changes" comment="All files updated">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input_small.txt" beforeDir="false" afterPath="$PROJECT_DIR$/input_small.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Service/FileSaver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/FileSaver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Service/LanguageChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/LanguageChecker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Service/Pattern.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/Pattern.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -129,7 +126,14 @@
       <option name="project" value="LOCAL" />
       <updated>1689705553232</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="All files updated">
+      <created>1689778224098</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1689778224098</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

@@ -1,5 +1,6 @@
 package Service;
 
+//Судя по всему, недостаточно данных - слишком мало сочетаний, программа их видит не во всех текстах
 public enum Pattern {
     EN("English", new String [] {"th", "he", "in", "er", "an", "re", "es", "on", "st", "nt", "en", "at", "ed", "no", "to", "the", "and", "ing", "ent", "ion", "her", "for", "tha", "nth", "int", "ere", "tio", "ter", "est", "ers"}),
     FR("French", new String [] {"es", "le", "de", "en", "on", "nt", "re", "an", "la", "er", "te", "el", "se", "ti", "ur", "ent", "les", "ion", "des", "ede", "que", "est", "tio", "ant", "par", "men", "del", "ela", "sde", "lle"}),
