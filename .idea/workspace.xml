@@ -4,11 +4,8 @@
     <list default="true" id="e1713f84-36f4-41a3-89a7-44c434e9df82" name="Changes" comment="All files updated">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/input_small.txt" beforeDir="false" afterPath="$PROJECT_DIR$/input_small.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BruteForceCipher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BruteForceCipher.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Service/FileSaver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/FileSaver.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Service/LanguageChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/LanguageChecker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Service/TextFromFileLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/TextFromFileLoader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,7 +122,14 @@
       <option name="project" value="LOCAL" />
       <updated>1689695765838</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="All files updated">
+      <created>1689705553232</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1689705553232</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -168,6 +172,11 @@
           <url>file://$PROJECT_DIR$/src/BruteForceCipher.java</url>
           <line>26</line>
           <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Service/LanguageChecker.java</url>
+          <line>21</line>
+          <option name="timeStamp" value="21" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

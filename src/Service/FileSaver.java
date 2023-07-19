@@ -2,9 +2,9 @@
 package Service;
 
 import java.io.*;
-import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+
 
 public class FileSaver {
 
@@ -13,8 +13,8 @@ public class FileSaver {
         if (isNotAbsolutePath(path)) {
             outputPath = (outputPath.toAbsolutePath());
         }
-        try {
-            Files.write(outputPath, message.getBytes());
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(outputPath.toFile()))) {
+            writer.write(message);
             System.out.println("Text saved");
         } catch (IOException e) {
             e.printStackTrace();
