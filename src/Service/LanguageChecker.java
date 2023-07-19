@@ -6,28 +6,24 @@ public class LanguageChecker {
 
     public String getLanguageByPattern(String text) {
         String languageName = "";
-        List<Pattern> patternList = List.of(
-                Pattern.EN,
-                Pattern.FR,
-                Pattern.ES,
-                Pattern.DE,
-                Pattern.RU);
-        for(Pattern pattern: patternList) {
-            if(isPatternWordInText(text, pattern)) {
-                languageName =  pattern.getLabel();
+        List<Pattern> languagePatterns = List.of(Pattern.values());
+        for(Pattern currentPattern: languagePatterns) {
+            if(isPatternWordInText(text, currentPattern)) {
+                languageName = currentPattern.getLabel();
             }
         }
         return languageName;
     }
 
     private boolean isPatternWordInText (String text, Pattern pattern) {
-        String [] frequentWord = pattern.getDescription();
+
+        String [] frequentWords = pattern.getDescription();
         int count = 0;
-        for(String word: frequentWord) {
+        for(String word: frequentWords) {
             int wordCount = getFrequentWordCount(text, word);
-                if(wordCount > 0) {
-                    count++;
-                }
+            if(wordCount > 1) {
+                count++;
+            }
         }
         return count > 1;
     }

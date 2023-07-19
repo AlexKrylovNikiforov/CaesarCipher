@@ -9,69 +9,41 @@ import java.nio.file.Paths;
 
 public class BruteForceCipher {
 
-    private final String SPEC_CHARS = "[$&+,:;=?@#|'<>.-^*()%!]";
-    public String simpleDecryption (String inputPath) {
+    public String simpleDecryption (String inputText) {
         CaesarCipher cc = new CaesarCipher();
-
-        if (!isAbsolutePath(inputPath)) {
-            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-            try {
-                inputPath = reader.readLine();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
         String decryptedText;
-        try {
-            String text = Files.readString(Path.of(inputPath));
-            int offset = getOffset(text);
-            decryptedText = cc.decrypt(text, offset);
-        } catch (IOException e) {
-            throw new RuntimeException(e.getCause());
-        }
+        int offset = getOffset(inputText);
+        decryptedText = cc.decrypt(inputText, offset);
         return decryptedText;
-    }
-
-    private boolean isAbsolutePath(String inputPath) {
-        Path p = Paths.get(inputPath);
-        return p.isAbsolute() && Files.exists(p);
     }
 
     public String noSpecCharsDecryption (String inputText) {
         CaesarCipher cc = new CaesarCipher();
         LanguageChecker lc = new LanguageChecker();
         String decryptedText = null;
-        try {
-            String text = Files.readString(Path.of(inputText));
-            for (int i = 0; i < 256; i++) {
-                int offset = i;
-                decryptedText = cc.decrypt(text, offset);
-                String languageByPattern = lc.getLanguageByPattern(decryptedText);
-                if(!languageByPattern.equals("")) {
-                    return String.format("Language: %s%n Decrypted text: %s", languageByPattern, decryptedText);
-                }
+        for (int i = 1; i < 256; i++) {
+            decryptedText = cc.decrypt(inputText, i);
+            String languageByPattern = lc.getLanguageByPattern(decryptedText);
+            if(!languageByPattern.isEmpty()) {
+                return String.format("Decrypted text: %s", decryptedText);
             }
-        } catch (IOException e) {
-            System.out.println(e.getStackTrace());
         }
         return decryptedText;
     }
 
     public String smallTextDecryption(String inputText) {
-        CaesarCipher cc = new CaesarCipher();
         LanguageChecker lc = new LanguageChecker();
         StringBuilder decryptedText = new StringBuilder();
         for (int key = 0; key < 256; key++) {
             StringBuilder decryptedAttempt = new StringBuilder();
             for (int i = 0; i < inputText.length(); i++) {
                 char ch = inputText.charAt(i);
-                int value = (int) ch;
-                int decryptedValue = (value - key + 256) % 256; //256 is the maximum value of ASCII symbols
+                int decryptedValue = ((int) ch - key + 256) % 256; //256 is the maximum value of ASCII symbols
                 char decryptedChar = (char) decryptedValue;
                 decryptedAttempt.append(decryptedChar);
             }
             String decryptedString = decryptedAttempt.toString();
-            if (lc.getLanguageByPattern(decryptedString) != "") {
+            if (!lc.getLanguageByPattern(decryptedString).equals("")) {
                 return decryptedString;
             }
             decryptedText.append(decryptedAttempt).append("\n");
@@ -84,7 +56,7 @@ public class BruteForceCipher {
         int dif2 = fourthValue - thirdValue;
         return dif1 == dif2;
     }
-    
+
     private int getOffset(String text) {
         int offset = 0;
         for (int i = 0; i < text.length(); i++) {
@@ -104,13 +76,8 @@ public class BruteForceCipher {
         return offset;
     }
 
-    public boolean hasTextSpecChars(String text) {
-        for (int i = 0; i < SPEC_CHARS.length(); i++) {
-            char currentChar = SPEC_CHARS.charAt(i);
-            if (text.indexOf(currentChar) == -1) {
-                return false;
-            }
-        }
-        return true;
+    private boolean isAbsolutePath(String inputPath) {
+        Path p = Paths.get(inputPath);
+        return !p.isAbsolute() || !Files.exists(p);
     }
 }
