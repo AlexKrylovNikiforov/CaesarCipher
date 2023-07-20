@@ -65,7 +65,7 @@ public class BruteForceCipher {
             int COMMA_VALUE = 44;
             int SPACE_VALUE = 32;
             int DOT_VALUE = 46;
-            int EXCLAM_SIGN_VALUE = 33;
+            //int EXCLAM_SIGN_VALUE = 33;
             int DOUBLE_DOT_VALUE = 58;
             int COMMA_DOT_VALUE = 59;
             if(secondValue == 0 || secondValue == 10) {
