@@ -65,11 +65,14 @@ public class BruteForceCipher {
             int COMMA_VALUE = 44;
             int SPACE_VALUE = 32;
             int DOT_VALUE = 46;
+            int EXCLAM_SIGN_VALUE = 33;
+            int DOUBLE_DOT_VALUE = 58;
+            int COMMA_DOT_VALUE = 59;
             if(secondValue == 0 || secondValue == 10) {
                 offset = (int) text.charAt(i) - DOT_VALUE;
             }
-            if ((isDifferenceEqual(COMMA_VALUE, firstValue, SPACE_VALUE, secondValue) || (isDifferenceEqual(DOT_VALUE, firstValue, SPACE_VALUE, secondValue)))) {
-                offset = COMMA_VALUE - (int) text.charAt(i);
+            if ((isDifferenceEqual(COMMA_VALUE, firstValue, SPACE_VALUE, secondValue) || (isDifferenceEqual(DOT_VALUE, firstValue, SPACE_VALUE, secondValue))) || (isDifferenceEqual(DOUBLE_DOT_VALUE, firstValue, SPACE_VALUE, secondValue) || (isDifferenceEqual(COMMA_DOT_VALUE, firstValue, SPACE_VALUE, secondValue)))) {
+                offset = SPACE_VALUE - (int) text.charAt(i+1);
             }
 
         }
